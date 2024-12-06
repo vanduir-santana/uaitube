@@ -1,10 +1,38 @@
+## Sobre
+O projeto consiste em um portal de vídeos que pode ser executado em infraestrutura própria ou servidores VPS. Inicialmente o projeto terá a capacidade de executar vídeos, áudios e com uma seção própria para notícias. Outra seção importante é uma dedicada a execução de música, onde arquivos com legenda podem ser exibidos de uma maneira que o usuário pode ver um preview das próximas linhas, tendo opções de animações simples.
+
 ## Começando
+O projeto pode ser executado localmente através do Docker ou clone do repositório.
+
+### Executando localmente
+Para executar o projeto localmente é preciso fazer o clone do repositório em sua máquina. Os requisitos são:
+* [Bun](https://bun.sh/docs/installation): Runtime JavaScript
+* [Git](https://git-scm.com/downloads): Controle de versão para fazer o clone para sua máquina
+* [PostgreSQL versão 16 ou superior](https://www.postgresql.org/download/): Sistema Banco de dados usado no projeto. Caso você prefira usar através do docker esse é o [link](https://hub.docker.com/_/postgres).
+* [Nginx](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/): esse pacote é necessário apenas para deploy ou para execução em infra própria. Também pode ser instalado através do docker.
+
+Após instalar o Bun é preciso fazer o clone desse repositório, você pode seguir exemplo:
+Criar diretório do projeto:
+```bash
+mkdir -p ~/dev/uaitube
+git clone 
+```
+
+Ir para o diretório criado:
+```bash
+cd ~/dev/uaitube
+```
+
+Clonar projeto:
+```bash
+cd ~/dev/uaitube
+```
 
 Primeiro execute o servidor de desenvolvimento
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
 # ou
 pnpm dev
@@ -12,23 +40,16 @@ pnpm dev
 bun dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) com o seu navegador e veja o resulado.
+Abra [http://localhost:3000](http://localhost:3000) 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Esse projeto usa [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) para otimizar automaticamente e carregar [Geist](https://vercel.com/font).
 
-## Learn More
+## Deploy na sua própria infra ou em um VPS
+Seguir os mesmos passos acima, porém instalar e configurar o Nginx como proxy reverso. A maioria dos planso de VPS dá suporte para instalação através do Docker, caso você ache mais apropriado.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy na Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+A maneira mais fácil de implantar seu app Next.js é usando a [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) dos criadores do Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
