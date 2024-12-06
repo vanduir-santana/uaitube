@@ -37,8 +37,11 @@ yarn-error.log*
 next-env.d.ts
 
 # arquivos de sessao do vim
-.vim
+Session.vim
+Sessionx.vim
 
 # arquivos de backup pg
 backup-*.sql
 backup-*.tar
+*-bkp.*
+*.bkp
