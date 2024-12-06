@@ -1,17 +1,18 @@
 ## Sobre
-O projeto consiste em um portal de vídeos que pode ser executado em infraestrutura própria ou servidores VPS. Inicialmente o projeto terá a capacidade de executar vídeos, áudios e com uma seção própria para notícias. Outra seção importante é uma dedicada a execução de música, onde arquivos com legenda podem ser exibidos de uma maneira que o usuário pode ver um preview das próximas linhas, tendo opções de animações simples.
+O projeto consiste em um portal de vídeos que pode ser executado em infraestrutura própria ou servidores VPS. Inicialmente terá a capacidade de executar vídeos, áudios e com uma seção própria para notícias. Também tem uma seção dedicada a execução de música, onde arquivos com legenda podem ser exibidos de uma maneira que o usuário pode ver um preview das próximas linhas, tendo opções de animação simples.
 
 ## Começando
-O projeto pode ser executado localmente através do Docker ou clone do repositório.
+Pode ser executado localmente através do Docker ou clone do repositório.
 
 ### Executando localmente
-Para executar o projeto localmente é preciso fazer o clone do repositório em sua máquina. Os requisitos são:
+Para executar ocalmente é preciso fazer o clone do repositório em sua máquina. Os requisitos são:
 * [Bun](https://bun.sh/docs/installation): Runtime JavaScript
 * [Git](https://git-scm.com/downloads): Controle de versão para fazer o clone para sua máquina
 * [PostgreSQL versão 16 ou superior](https://www.postgresql.org/download/): Sistema Banco de dados usado no projeto. Caso você prefira usar através do docker esse é o [link](https://hub.docker.com/_/postgres)
 * [Nginx](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/): esse pacote é necessário apenas para deploy ou para execução em infra própria. Também pode ser instalado através do docker
 
-Após instalar o Bun é preciso fazer o clone desse repositório, você pode seguir exemplo:
+Após instalar o Bun é preciso fazer o clone desse repositório, você pode seguir o exemplo:
+
 Criar diretório do projeto:
 ```bash
 mkdir -p ~/dev/uaitube
