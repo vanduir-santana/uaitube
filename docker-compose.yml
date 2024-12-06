@@ -1,0 +1,10 @@
+services:
+  prod:
+    container_name: uaitube
+    #image: nextjs-bun-app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 2244:3000
+    restart: unless-stopped

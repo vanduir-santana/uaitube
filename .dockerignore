@@ -1,0 +1,26 @@
+# do git da Vercel
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+.next
+.git
+# Nao e necessario visto que estamos empacotando todo o app
+logs
+*.log
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.next
+.git
+# do git, repositorio selfup/nextjs-docker
+.results
+scripts
+.env
+# De outra referencia
+**/.aws
+**/dist
+# arquivos de backup pg
+backup-*.sql
+backup-*.tar

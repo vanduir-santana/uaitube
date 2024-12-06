@@ -1,52 +1,81 @@
+"use client";
+
 import Image from "next/image";
+import { ChangeEvent, useState } from "react";
+import { endpoints } from "@/config";
+import { Video } from "@/db/schema";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [videos, setVideos] = useState<Video[]>([]);
 
+  const loadRandomResult = async () => {
+    const response = await fetch(endpoints.video.random);
+    const result = await response.json();
+    setVideos(result);
+  };
+
+  const loadFindResult = async (text: string) => {
+    const response = await fetch(endpoints.video.find(text));
+    const result = await response.json();
+    setVideos(result);
+  };
+
+  const handleClickRandomVideos = async () => {
+    setIsLoading(true);
+    await loadRandomResult();
+    setIsLoading(false);
+  };
+
+  const handleChangeFind = async (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    if (value.length === 0) {
+      event.preventDefault();
+      return;
+    }
+
+    setIsLoading(true);
+    await loadFindResult(value);
+    setIsLoading(false);
+  };
+  
+  return (
+    <div className="border-4 border-violet-600 flex items-center justify-items-center min-h-screen p-8 pb-20 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)] h-auto">
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            className="rounded-2xl border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-3 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-11 sm:h-12 px-4 sm:px-5"
+            onClick={handleClickRandomVideos}
           >
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
+              className="dark:invert w-12 h-auto"
+              src="/i/logo.svg"
               alt="Vercel logomark"
-              width={20}
-              height={20}
+              width={0}
+              height={0}
             />
-            Deploy now
-          </a>
-          <a
+            Vídeos aleatórios
+          </button>
+          <input
             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            onChange={handleChangeFind}
+          />
+          <button
+            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+            onClick={() => setVideos([])}
           >
-            Read our docs
-          </a>
+            Limpar lista
+          </button>
+        </div>
+        <div className="w-full border-2 border-red-700">
+          {isLoading && <h2>Carregando lista..</h2>}
+          {videos.map((video: Video, index: number) => {
+            return (
+              <div key={index}>
+                <p>{video.title} - {video.duration}</p>
+              </div>
+            );
+          })}
         </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
@@ -63,7 +92,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Learn
+          Aprenda
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -78,7 +107,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Examples
+          Exemplos
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -93,8 +122,9 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Go to nextjs.org →
+          Vá para nextjs.org →
         </a>
+        <span>Teste Alteração Vanduir 1122</span>
       </footer>
     </div>
   );
