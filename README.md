@@ -2,10 +2,10 @@
 O projeto consiste em um portal de vídeos que pode ser executado em infraestrutura própria ou servidores VPS. Inicialmente terá a capacidade de executar vídeos, áudios e com uma seção própria para notícias. Também tem uma seção dedicada a execução de música, onde arquivos com legenda podem ser exibidos de uma maneira que o usuário pode ver um preview das próximas linhas, tendo opções de animação simples.
 
 ## Começando
-Pode ser executado localmente através do Docker ou clone do repositório.
+Pode ser executado localmente através do clone do repositório ou Docker.
 
 ### Executando localmente
-Para executar ocalmente é preciso fazer o clone do repositório em sua máquina. Os requisitos são:
+Os requisitos para executar localmente são:
 * [Bun](https://bun.sh/docs/installation): Runtime JavaScript
 * [Git](https://git-scm.com/downloads): Controle de versão para fazer o clone para sua máquina
 * [PostgreSQL versão 16 ou superior](https://www.postgresql.org/download/): Sistema Banco de dados usado no projeto. Caso você prefira usar através do docker esse é o [link](https://hub.docker.com/_/postgres)
