@@ -8,10 +8,10 @@ Pode ser executado localmente através do clone do repositório ou Docker.
 Os requisitos para executar localmente são:
 * [Bun](https://bun.sh/docs/installation): Runtime JavaScript
 * [Git](https://git-scm.com/downloads): Controle de versão para fazer o clone para sua máquina
-* [PostgreSQL versão 16 ou superior](https://www.postgresql.org/download/): Sistema Banco de dados usado no projeto. Caso você prefira usar através do docker esse é o [link](https://hub.docker.com/_/postgres)
-* [Nginx](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/): esse pacote é necessário apenas para deploy ou para execução em infra própria. Também pode ser instalado através do docker
+* [PostgreSQL versão 16 ou superior](https://www.postgresql.org/download/): Sistema de Banco de dados usado no projeto. Caso você prefira usar através do docker esse é o [link](https://hub.docker.com/_/postgres)
+* (Opcional) [Nginx](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/): esse pacote é necessário apenas para deploy ou para execução em infra própria. Também pode ser instalado através do docker
 
-Após instalar o Bun é preciso fazer o clone desse repositório, você pode seguir o exemplo:
+Após instalar os requisitos obrigatórios é preciso fazer o clone desse repositório, você pode seguir o exemplo:
 
 Criar diretório do projeto:
 ```bash
