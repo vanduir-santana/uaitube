@@ -22,7 +22,7 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=m44vcnstl
+      - POSTGRES_PASSWORD=SENHA_DB
       - POSTGRES_DB=postgres
     volumes:
       - pgdata:/var/lib/postgresql/data
