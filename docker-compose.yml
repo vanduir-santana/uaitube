@@ -1,10 +1,31 @@
 services:
   prod:
-    container_name: uaitube
-    #image: nextjs-bun-app
+    container_name: uaitube-app
     build:
       context: ./
       dockerfile: Dockerfile
     ports:
-      - 2244:3000
+      - "2244:3000"
     restart: unless-stopped
+    depends_on:
+      - db
+    env_file:
+      - .env.production
+    #environment:
+    #  DATABASE_URL: postgresql://uaitube_user:MUDAR_SENHA@db:5432/uaitube?schema=public
+
+  db:
+    image: postgres:16
+    container_name: uaitube-db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=m44vcnstl
+      - POSTGRES_DB=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

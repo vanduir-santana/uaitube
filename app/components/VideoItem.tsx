@@ -19,7 +19,7 @@ export default function VideoItem({
       >
         <Image
           src={staticEndpoints.images2(id)}
-          alt="Clique para abrir"
+          alt="Abrir"
         />
         <h3>{title}</h3>
         <p>{description}</p>

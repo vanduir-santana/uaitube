@@ -84,8 +84,8 @@ export const videoTag = pgTable("VideoTag", {
 		}).onUpdate("restrict").onDelete("restrict"),
 		idx16640Primary: primaryKey({ columns: [table.idVideo, table.idTag], name: "idx_16640_primary"}),
 	}
-o});
+});
 
-// add por mim: tipos
+// add por Vanduir: tipos
 //export type Video0 = typeof video.$inferSelect; // dessa maneira é mais simples
 export type Video = InferSelectModel<typeof video>;

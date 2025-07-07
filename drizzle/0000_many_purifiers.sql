@@ -1,6 +1,6 @@
 -- Current sql file was generated after introspecting the database
 -- If you want to run this migration please uncomment this code before executing migrations
-/*
+
 CREATE TABLE IF NOT EXISTS "Category" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"name" varchar(50)
@@ -69,4 +69,4 @@ CREATE INDEX IF NOT EXISTS "idx_16634_idx_uaid" ON "Video" USING btree ("uaid");
 CREATE INDEX IF NOT EXISTS "idx_16634_idx_yid" ON "Video" USING btree ("yid");--> statement-breakpoint
 CREATE UNIQUE INDEX IF NOT EXISTS "idx_16634_ui_yid" ON "Video" USING btree ("yid");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_16640_fk_tag" ON "VideoTag" USING btree ("idTag");
-*/
+

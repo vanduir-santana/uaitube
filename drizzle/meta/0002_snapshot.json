@@ -1,0 +1,448 @@
+{
+  "id": "656e67ab-19ea-482c-871f-a062e34c50a1",
+  "prevId": "59d0125c-a69b-41e1-bd1a-a7a5af5f56cd",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.Category": {
+      "name": "Category",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "idx_16619_uk_name": {
+          "name": "idx_16619_uk_name",
+          "columns": [
+            {
+              "expression": "name",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.Down": {
+      "name": "Down",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "url": {
+          "name": "url",
+          "type": "varchar(300)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "downloaded": {
+          "name": "downloaded",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "date": {
+          "name": "date",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "idx_16624_url": {
+          "name": "idx_16624_url",
+          "columns": [
+            {
+              "expression": "url",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.Tag": {
+      "name": "Tag",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "idx_16629_uk_name": {
+          "name": "idx_16629_uk_name",
+          "columns": [
+            {
+              "expression": "name",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.Video": {
+      "name": "Video",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "uaid": {
+          "name": "uaid",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "yid": {
+          "name": "yid",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "date": {
+          "name": "date",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "postDate": {
+          "name": "postDate",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "duration": {
+          "name": "duration",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "author": {
+          "name": "author",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "viewes": {
+          "name": "viewes",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "likes": {
+          "name": "likes",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "categoryId": {
+          "name": "categoryId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "aspectRatioWidth": {
+          "name": "aspectRatioWidth",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "aspectRatioHeight": {
+          "name": "aspectRatioHeight",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "textType": {
+          "name": "textType",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "idx_16634_fk_category": {
+          "name": "idx_16634_fk_category",
+          "columns": [
+            {
+              "expression": "categoryId",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last",
+              "opclass": "int4_ops"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "idx_16634_idx_title": {
+          "name": "idx_16634_idx_title",
+          "columns": [
+            {
+              "expression": "title",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "idx_16634_idx_uaid": {
+          "name": "idx_16634_idx_uaid",
+          "columns": [
+            {
+              "expression": "uaid",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "idx_16634_idx_yid": {
+          "name": "idx_16634_idx_yid",
+          "columns": [
+            {
+              "expression": "yid",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "idx_16634_ui_yid": {
+          "name": "idx_16634_ui_yid",
+          "columns": [
+            {
+              "expression": "yid",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "fk_categoria": {
+          "name": "fk_categoria",
+          "tableFrom": "Video",
+          "columnsFrom": [
+            "categoryId"
+          ],
+          "tableTo": "Category",
+          "schemaTo": "public",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "restrict",
+          "onDelete": "restrict"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.VideoTag": {
+      "name": "VideoTag",
+      "schema": "",
+      "columns": {
+        "idVideo": {
+          "name": "idVideo",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'0'"
+        },
+        "idTag": {
+          "name": "idTag",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {
+        "idx_16640_fk_tag": {
+          "name": "idx_16640_fk_tag",
+          "columns": [
+            {
+              "expression": "idTag",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last",
+              "opclass": "int4_ops"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "fk_tag": {
+          "name": "fk_tag",
+          "tableFrom": "VideoTag",
+          "columnsFrom": [
+            "idTag"
+          ],
+          "tableTo": "Tag",
+          "schemaTo": "public",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "restrict",
+          "onDelete": "restrict"
+        },
+        "fk_video": {
+          "name": "fk_video",
+          "tableFrom": "VideoTag",
+          "columnsFrom": [
+            "idVideo"
+          ],
+          "tableTo": "Video",
+          "schemaTo": "public",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "restrict",
+          "onDelete": "restrict"
+        }
+      },
+      "compositePrimaryKeys": {
+        "idx_16640_primary": {
+          "name": "idx_16640_primary",
+          "columns": [
+            "idVideo",
+            "idTag"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "views": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  },
+  "internal": {
+    "tables": {
+      "VideoTag": {
+        "columns": {
+          "idVideo": {
+            "isDefaultAnExpression": true
+          }
+        }
+      }
+    }
+  }
+}

@@ -15,3 +15,5 @@ export async function GET() {
 
   return Response.json(videos);
 }
+
+export const dynamic = "force-dynamic";
